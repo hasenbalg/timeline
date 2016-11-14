@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="css/main.css" media="screen" title="no title">
 
+
+
+
 <?php
 require_once("db.php");
 require_once 'class.Event.php';
