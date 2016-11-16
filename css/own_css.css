@@ -1,0 +1,53 @@
+/*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+h1 {
+  text-align: center;
+  font-size: 100%;
+  color: #E5E5E5;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+  margin: 2% 0;
+}
+h2 {
+  text-align: center;
+  font-size: 150%;
+  color: #4A4444;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+  margin: 2% 0;
+}
+h3 {
+  text-align: center;
+  font-size: 275%;
+  color: #E5E5E5;
+  text-transform: uppercase;
+  letter-spacing: 1%;
+} */
+.parallax {
+  background-image: url("../pictures/tbbt_logo.jpg");
+  repeat fixed 100%;
+}
+.parallax-inner {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.parallax-top {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.parallax-free-space {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.parallax-bottom {
+  padding-top: 8%;
+  padding-bottom: 8%;
+}
+.carousel-img-size {
+  width: auto;
+  height: 225px;
+  max-height: 225px;
+}
