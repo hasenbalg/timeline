@@ -1,0 +1,22 @@
+html{
+  overflow-y: hidden;
+}
+
+.box{
+  margin: 2em;
+  padding: 2em;
+  border: 1px solid blue;
+  border-radius: 1em;
+  background-color: lightblue;
+  max-width: 10em;
+  display: inline-block;;
+
+}
+
+input, textarea{
+  display: block;
+  margin: 1em;
+}
+.hidden{
+  display: none;
+}

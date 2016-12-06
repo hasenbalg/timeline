@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"
+  xmlns="http://www.w3c.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+  <head>
+
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!--<link rel="stylesheet" type="text/css" href="../css">-->
+    <link rel="stylesheet" type="text/css" href="../css\own_css.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="..\css\flickity.css" media="screen">
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-horizon.css">
+    <link rel="stylesheet" href="..\css\flickity.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="..\js\own_js.js"> -->
+
+    <!-- Vis
+    <link href="..\css\vis.css" rel="stylesheet" type="text/css" />
+    <link href="../css\vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+    <script src="../googleAnalytics.js"></script>  -->
+
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+
+<!--    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="../js/timeline-min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/timeline.css">
+    <script type="text/javascript" src="..\js\own_js.js">-->
+
+    </script>
+
+  </head>
+  <body>
+
+
+    <section class="parallax">
+
+      <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarResponsive" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TBBT Timeline</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#" id="logIn" style="color: white" data-toggle="modal" data-target="#modalLogIn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+<!-- bootstrap modal log in -->
+<div class="modal fade"id="modalLogIn" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalLabel">Log in</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="email-addr" class="control-label">Email-address:</label>
+            <input type="text" class="form-control" id="email-addr"/>
+          </div>
+          <div class="form-group">
+            <label for="passwd" class="control-label">Password:</label>
+            <input type="text" class="form-control" id="passwd"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="parallax-top" style="background-color:rgba(0, 0, 0, 0.5)">
+  </div>
+
+<div ng-app="">
+
+  <!-- Carousel slide with flickity -->
+  <div class="parallax-inner">
+    <ul class="gallery js-flickity" style="position: center" data-flickity-options='{ "cellAlign": "left", "contain": true, "wrapAround": true, "setGallerySize": false }'>
+        <li><a href="" ng-click="showme=false"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season1.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=true"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season2.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=false"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season3.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=true"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season4.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=false"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season5.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=true"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season6.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=false"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season7.png"></div></a></li>
+        <li><a href="" ng-click="showme=true"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season8.png"></div></a></li>
+        <li><a href="" ng-click="showme=false"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season9.jpg"></div></a></li>
+        <li><a href="" ng-click="showme=true"><div class="carousel-item"><img id="season6" class="carousel-img-size" src="..\pictures\season10.jpg"></div></a></li>
+    </ul>
+  </div>
+
+<div class="parallax-free-space"></div>
+
+<!-- Show text -->
+<div class="parallax-bottom">
+  <div class="text">
+  <div class="wrapper">
+    <div ng-hide="showme">
+      <div class="jumbotron" style="background-color:rgba(255, 255, 255, 0.5)">
+        <h1>The Big Bang theory1</h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <h2>TBBT History</h2>
+          The Big Bang Theory is a comedy series about four young scientists
+          who know all about the world of physics, and one girl, who gives
+          the physics world a real spin.
+          Leonard Hofstadter is a smart guy who tries his best to complete
+          his research and become famous for his work while also attempting
+          to be the most socially-interacting guy in their friend group.
+          Sheldon Cooper is one of the world's smartest men with an
+          intellectual capacity through the roof and a language with
+          scientific words normal people only have one comment to ('What-).
+          Howard Wolowitz is an engineer with his mind partially on science,
+          but mostly on women.
+        </div>
+      </div>
+    </div>
+    <div ng-show="showme">
+      <div class="jumbotron" style="background-color:rgba(255, 255, 255, 0.5)">
+        <h1>The Big Bang theory</h1>
+        He always tries his best to impress a girl and
+        get his share of sexual intercourses, but he always manages to screw
+        up somehow, probably with his bad knowledge of treating women in a
+        bad matter. Rajesh Koothrappali is an Indian scientist performing
+        experiments on black holes, outer space, life on other planets and
+        not to mention string theory. Raj is mostly known for his Selective
+        Mutism, in other words, his fear of speaking to women, making social
+        interaction difficult for him. Finally, there's Penny.
+        Penny is the gorgeous girl next-door to Leonard and Sheldon's
+        apartment, and though she does not have any knowledge in physics or
+        science, she makes success by being a funny character frequently
+        having hilarious comments and on- and off-going relationships.
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <h2>Summary</h2>
+          Hallo. Summary.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Vis
+<script src="..\js\vis.js"></script>-->
+
+<!-- iQuery
+<script src="http://code.jquery.com/jquery-latest.js"></script> -->
+
+<!-- Used for design the text -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--<script src="bootstrap-3.3.7/distbootstrap-3.3.7/dist/js/bootstrap.min.js"></script>-->
+
+<!-- Bootstrap
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+<!--<script src="..\bootstrap/dist/js/bootstrap.js"></script>
+<script src="..\js\carousel-swipe.js"></script>-->
+<script src="..\js\flickity.pkgd.js"></script>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS.
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script> -->
+  </body>
+</html>
