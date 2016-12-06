@@ -12,6 +12,8 @@ class Event
   public $_date = "";
   public $_imgs = "";
 
+  
+
   function __construct($id, $heading, $text, $date)
   {
     $this->_id  = $id;
