@@ -1,16 +1,8 @@
 # Timeline
 
 needed:
-- mysql server running on localhost containing the database timeline;
+- mysql server running on localhost containing the database timeline. The SQL can be found in the resources folder.
 
-the sql is:
-create database timeline;
-use timeline;
-#run it once
-
-insert into timeline.event ( date, heading, text, img_url ) values ( NOW(), "Ueberschrift 1", "hier koennte ihre werbung stehen!", "http://fillmurray.com/200/300");
-insert into timeline.event ( date, heading, text , img_url) values ( NOW(), "Ueberschrift 2", "was anderes!", "http://fillmurray.com/g/200/300");
-insert into timeline.event ( date, heading, text , img_url) values ( NOW(), "Ueberschrift 3", "nochwas anderes!", "http://fillmurray.com/200/300");
 
 ## References
 Architecture: https://www.youtube.com/playlist?list=PLVApX3evDwJ1i1KQYCcyS9hpSy_zOgU0Y, 2016-06-12
