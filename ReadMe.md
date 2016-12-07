@@ -19,4 +19,4 @@ Mysql connection: https://www.youtube.com/watch?v=DKfVx7kPZQQ, 2016-06-12
 http://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html, 2016-06-12
 http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html, 2016-06-12
 
-Display static page: http://www.ekiras.com/2016/06/how-to-display-static-html-in-springboot-mvc.html, 2016-06-12
+Display static page: https://spring.io/guides/gs/securing-web/, 2016-06-13

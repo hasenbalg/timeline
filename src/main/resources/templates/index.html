@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <title>HUHU</title>
+  <title>HUHU</title>
+  <link rel="stylesheet" type="text/css" media="all"
+  href="../../css/canvas.css" th:href="@{/css/canvas.css}" />
 </head>
 <body>
-<h1>HUHU</h1>
+  <h1>HUHU</h1>
+  <canvas id="canvas"  width="1000" height="50"></canvas>
 </body>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script src="../static/js/canvas.js" charset="utf-8"></script>
+<script th:src="@{/js/canvas.js}" charset="utf-8"></script>
 </html>
