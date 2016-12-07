@@ -3,13 +3,28 @@
 <head>
   <title>HUHU</title>
   <link rel="stylesheet" type="text/css" media="all"
-  href="../../css/canvas.css" th:href="@{/css/canvas.css}" />
+  href="../static/css/canvas.css" th:href="@{/css/canvas.css}" />
+  <link rel="stylesheet" type="text/css" media="all"
+  href="../static/css/main.css" th:href="@{/css/main.css}" />
 </head>
 <body>
-  <h1>HUHU</h1>
+  <h1 id="title">HUHU</h1>
+
+  <ul id="poster_gallery">
+    <li class="hidden" id="prototype"><img class="event_poster" src="" alt="huhu"></img></li>
+  </ul>
+
   <canvas id="canvas"  width="1000" height="50"></canvas>
+
+  <div id="content">
+    <h1 id="heading">Ueberschift</h1>
+    <p id="date">2day</p>
+    <p id="text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </div>
 </body>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-<script src="../static/js/canvas.js" charset="utf-8"></script>
-<script th:src="@{/js/canvas.js}" charset="utf-8"></script>
+<script src="../static/js/metadata.js" th:src="@{/js/metadata.js}" charset="utf-8"></script>
+<script src="../static/js/frontend.js" th:src="@{/js/frontend.js}" charset="utf-8"></script>
 </html>

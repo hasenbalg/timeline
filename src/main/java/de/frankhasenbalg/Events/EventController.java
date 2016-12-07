@@ -9,6 +9,7 @@ import java.util.List;
  * Created by frank on 2016-12-06.
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/event")
 public class EventController {
     EventRepository eventRepository;
@@ -18,26 +19,20 @@ public class EventController {
         this.eventRepository = eventRepository;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Event> getAll(){
         return eventRepository.findAllByOrderByDateAsc();
     }
 
-//    @RequestMapping(value = "/affordable/{price}", method = RequestMethod.GET)
-//    public List<Event> getAffordable(@PathVariable double price){
-////        return events.stream().filter(x -> x.getPricePerNight() <= price)
-////                .collect(Collectors.toList());
-//        return eventRepository.findByPricePerNightLessThan(price);
-//    }
-
+    @CrossOrigin
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public List<Event> create(@RequestBody Event event){
-//        events.add(event);
-//        return events;
         eventRepository.save(event);
         return eventRepository.findAll();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public List<Event> remove(@PathVariable long id){
         eventRepository.delete(id);
