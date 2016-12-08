@@ -1,11 +1,11 @@
 function date_format_for_input_field(unixtime) {
   function leftPad(number, targetLength) {
     //http://stackoverflow.com/a/8043254/4062341
-      var output = number + '';
-      while (output.length < targetLength) {
-          output = '0' + output;
-      }
-      return output;
+    var output = number + '';
+    while (output.length < targetLength) {
+      output = '0' + output;
+    }
+    return output;
   }
   //http://stackoverflow.com/a/16211857
   var formattedDate = new Date(unixtime)
@@ -19,21 +19,88 @@ function date_format_for_input_field(unixtime) {
   return y + "-" + m + "-" + d;
 }
 
+function send_modified_data(form){
+  form.css("background-color", "red");
+  //gather data
+  var data = {
+    "id": form.find(".id").val(),
+    "heading": form.find(".heading").val(),
+    "text": form.find(".text").val(),
+    "img_url": form.find(".img_path").val(),
+    "date":form.find(".date").val()
+  };
+}
+
+function send_new_data(form){
+  form.css("background-color", "red");
+  //gather data
+  console.log("huhu");
+  var data = {
+    "heading": form.find(".heading").val(),
+    "text": form.find(".text").val(),
+    "img_url": form.find(".img_path").val(),
+    "date":form.find(".date").val()
+  };
+  console.log(data);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "http://localhost:8080/event/create",
+    cache: false,
+    dataType: 'json',
+    data: JSON.stringify(data),
+    success: function(response){
+      console.log("request ok");
+    }
+  });
+}
+
+function add_form_for_new_event() {
+  var prototype = $("#prototype");
+  var new_li = prototype.clone().removeAttr('id');
+  var form = new_li.find("form");
+
+  form.find(".id").val("");
+  form.find(".heading").val("");
+  form.find(".text").val("");
+  form.find(".img_path").val("");
+  form.find(".date").val("");
+  form.find(".poster").attr('src',"http://placehold.it/200x300");
+  form.find(".delete").remove();
+  form.find(".add").removeClass("hidden");
+
+  //add lister to button
+  form.find(".add").click(function() {
+    send_new_data($($(this).parent("form")));
+  });
+
+  new_li.appendTo($("#event_gallery"));
+}
+
+
+
 function build_event_forms(events) {
   console.log(events.length + "length of json obj");
   var prototype = $("#prototype");
   for (var i = 0; i < events.length; i++) {
     var new_li = prototype.clone().removeAttr('id');
     var form = new_li.find("form");
-    //$(form).attr("id", "form" + events[i].id);
+
     form.find(".id").val(events[i].id);
     form.find(".heading").val(events[i].heading);
     form.find(".text").val(events[i].text);
     form.find(".img_path").val(events[i].img_url);
     form.find(".date").val(date_format_for_input_field(events[i].date));
     form.find(".poster").attr('src',events[i].img_url);
+
+    //add onchange listener to form
+    //https://api.jquery.com/category/events/form-events/
+    $(form).change(function() {
+      send_modified_data($(this));
+    });
     new_li.appendTo($("#event_gallery"));
   }
+  add_form_for_new_event();
 }
 
 function request_data() {
