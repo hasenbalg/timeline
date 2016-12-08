@@ -24,6 +24,13 @@ public class MetaDataController {
     public List<MetaData> getAll(){
         return metaDataRepository.findAll();
     }
+    @CrossOrigin
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    public List<MetaData> mofify(@RequestBody MetaData md){
+        metaDataRepository.deleteAll();
+        metaDataRepository.save(md);
+        return metaDataRepository.findAll();
+    }
 
 
 }

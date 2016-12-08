@@ -2,9 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Edit</title>
+  <title>Edit</title>
 </head>
 <body>
-<h1>edit</h1>
+  <form class="" action="" method="post">
+    <h1>edit</h1>
+    <label for="title">Titel</label><br/>
+    <input type="text" name="title" id="title" value=""></input><br/><br/>
+    <label for="background_img_path">Background Image URL</label><br/>
+    <input type="text" name="background_img_path" id="background_img_path" value=""></input>
+  </form>
+
+  <ul>
+    <li>
+      <form class="" action="" method="post">
+        <label for="heading">Heading</label><br/>
+        <input type="text" name="heading" id="heading" value=""></input><br/><br/>
+        <label for="date">Date</label><br/>
+        <input type="date" name="date" id="date" value=""></input><br/>
+        <label for="img_path">Image URL</label><br/>
+        <input type="text" name="img_path" id="img_path" value=""></input><br/>
+        <img src="" alt="huhu"></img>
+      </form>
+    </li>
+  </ul>
 </body>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script src="../static/js/metadata_edit.js" th:src="@{/js/metadata_edit.js}" charset="utf-8"></script>
 </html>
