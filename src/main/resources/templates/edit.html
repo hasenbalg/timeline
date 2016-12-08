@@ -3,30 +3,36 @@
 
 <head>
   <title>Edit</title>
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/edit.css" th:href="@{/css/edit.css}" />
 </head>
 <body>
-  <form class="" action="" method="post">
+  <form class="metadata" action="" method="post">
     <h1>edit</h1>
     <label for="title">Titel</label><br/>
-    <input type="text" name="title" id="title" value=""></input><br/><br/>
+    <input type="text" name="title" class="form-control" id="title" value=""></input><br/><br/>
     <label for="background_img_path">Background Image URL</label><br/>
-    <input type="text" name="background_img_path" id="background_img_path" value=""></input>
+    <input type="text" name="background_img_path" class="form-control" id="background_img_path" value=""></input>
   </form>
 
-  <ul>
-    <li>
+  <ul id="event_gallery">
+    <li id="prototype">
       <form class="" action="" method="post">
+        <input type="hidden" name="id" class="id" value=""></input>
         <label for="heading">Heading</label><br/>
-        <input type="text" name="heading" id="heading" value=""></input><br/><br/>
+        <input type="text" name="heading" class="form-control heading" value=""></input><br/><br/>
         <label for="date">Date</label><br/>
-        <input type="date" name="date" id="date" value=""></input><br/>
+        <input type="date" name="date" class="form-control date" value=""></input><br/>
+        <label for="text">Text</label><br/>
+        <textarea name="text" class="form-control text" value=""></textarea><br/>
         <label for="img_path">Image URL</label><br/>
-        <input type="text" name="img_path" id="img_path" value=""></input><br/>
-        <img src="" alt="huhu"></img>
+        <input type="text" name="img_path" class="form-control img_path" value=""></input><br/>
+        <img class="poster" src="" alt="huhu"></img>
       </form>
     </li>
   </ul>
 </body>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 <script src="../static/js/metadata_edit.js" th:src="@{/js/metadata_edit.js}" charset="utf-8"></script>
+<script src="../static/js/backend.js" th:src="@{/js/backend.js}" charset="utf-8"></script>
 </html>

@@ -1,0 +1,22 @@
+li{
+  display: inline-block;
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid lightgray;
+  border-radius: 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+label, img{
+  margin-top: .5em;
+}
+img{
+  border-radius: .5em;
+}
+#prototype{
+  display: none;
+}
+.metadata{
+  width: 15em;
+  margin: 1em;
+  padding: 1em;
+}

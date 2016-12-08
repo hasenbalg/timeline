@@ -17,6 +17,7 @@ function request_metadata(){
     }
   });
 }
+
 function send_new_metadata() {
   console.log("on change");
   var data = {
@@ -49,6 +50,4 @@ function add_change_listeners() {
 
 $(document).ready(function() {
   request_metadata();
-
-
 });
