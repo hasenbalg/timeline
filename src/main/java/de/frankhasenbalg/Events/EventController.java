@@ -29,13 +29,20 @@ public class EventController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public List<Event> create(@RequestBody Event event){
         eventRepository.save(event);
-        return eventRepository.findAll();
+        return eventRepository.findAllByOrderByDateAsc();
     }
 
     @CrossOrigin
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public List<Event> remove(@PathVariable long id){
         eventRepository.delete(id);
-        return eventRepository.findAll();
+        return eventRepository.findAllByOrderByDateAsc();
+    }
+    @CrossOrigin
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    public List<Event> modify(@RequestBody Event event){
+        eventRepository.delete(event.getId());
+        eventRepository.save(event);
+        return eventRepository.findAllByOrderByDateAsc();
     }
 }

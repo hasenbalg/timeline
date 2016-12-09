@@ -19,8 +19,20 @@ function date_format_for_input_field(unixtime) {
   return y + "-" + m + "-" + d;
 }
 
+function reset_page() {
+  // remove all li but the first one (#prototype)
+  var list_elements = $("#event_gallery").find("li");
+  for (var i = 0; i < list_elements.length; i++) {
+    console.log(list_elements[i]);
+    if (list_elements[i].id != "prototype") {
+      $(list_elements[i]).remove();
+    }
+  }
+  //start again
+  request_data();
+}
+
 function send_modified_data(form){
-  form.css("background-color", "red");
   //gather data
   var data = {
     "id": form.find(".id").val(),
@@ -29,10 +41,22 @@ function send_modified_data(form){
     "img_url": form.find(".img_path").val(),
     "date":form.find(".date").val()
   };
+  console.log(data);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "http://localhost:8080/event/modify",
+    cache: false,
+    dataType: 'json',
+    data: JSON.stringify(data),
+    success: function(response){
+      console.log("request ok");
+      // reset_page(); //works but not handy while editing
+    }
+  });
 }
 
 function send_new_data(form){
-  form.css("background-color", "red");
   //gather data
   console.log("huhu");
   var data = {
@@ -51,6 +75,20 @@ function send_new_data(form){
     data: JSON.stringify(data),
     success: function(response){
       console.log("request ok");
+      reset_page();
+    }
+  });
+}
+
+function delete_record(li){
+  var id = li.find(".id").val();
+  console.log(id + " is id the id to delete");
+  $.ajax({
+    type: "GET",
+    url: "http://localhost:8080/event/delete/" + id,
+    success: function(response){
+      // build_event_forms(response);
+      li.remove();
     }
   });
 }
@@ -73,7 +111,12 @@ function add_form_for_new_event() {
   form.find(".add").click(function() {
     send_new_data($($(this).parent("form")));
   });
+  //add onchange listener to the img_path
+  form.find(".img_path").change(function() {
+    $(this).siblings(".poster").attr('src',$(this).val());
+  });
 
+  //render it
   new_li.appendTo($("#event_gallery"));
 }
 
@@ -98,6 +141,17 @@ function build_event_forms(events) {
     $(form).change(function() {
       send_modified_data($(this));
     });
+
+    //add onchange listener to the img_path
+    form.find(".img_path").change(function() {
+      $(this).siblings(".poster").attr('src',$(this).val());
+    });
+
+    //add onchange listener to the delete button
+    form.find(".delete").click(function() {
+      delete_record($(this).parents("li"));
+    });
+    //render it
     new_li.appendTo($("#event_gallery"));
   }
   add_form_for_new_event();
