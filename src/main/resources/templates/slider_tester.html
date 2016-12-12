@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="../static/css/slider.css">
+
+<div class="wrapper">
+  <div class="left">
+    <
+  </div>
+  <div class="right">
+    >
+  </div>
+  <ul id="poster_gallery">
+    <li><img class="poster" src="http://placehold.it/100x150?text=1" alt=""></li>
+    <li><img class="poster" src="http://placehold.it/100x150?text=2" alt=""></li>
+    <li><img class="poster" src="http://placehold.it/100x150?text=3" alt=""></li>
+    <li><img class="poster" src="http://placehold.it/100x150?text=4" alt=""></li>
+  </ul>
+</div>
+
+<script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+<script type="text/javascript">
+//http://stackoverflow.com/a/7375513/4062341
+var animation_time = 1000;
+var mouseover_left = false;
+var mouseover_right = false;
+
+function slide_left() {
+  if (mouseover_left) {
+    var first = $("#poster_gallery").children().first();
+    $("#poster_gallery").animate(
+      {"margin-left": "-=" + ($(first).outerWidth()) + "px"},
+      animation_time,
+      function() {
+        $(first).remove();
+        $("#poster_gallery").css("margin-left", 0);
+        first.appendTo($("#poster_gallery"));
+        slide_left();
+    });
+  }
+
+}
+
+function slide_right() {
+  if (mouseover_right) {
+    var last = $("#poster_gallery").children().last();
+    $("#poster_gallery").css("margin-left", -($(last).outerWidth()));
+    last.prependTo($("#poster_gallery"));
+    $("#poster_gallery").animate({"margin-left": "+=" + ($(last).outerWidth()) + "px"}, animation_time, function() {
+      $("#poster_gallery").css("margin-left", 0);
+      slide_right();
+    });
+  }
+}
+
+function build_slider() {
+  $(".left").click(function() {
+    mouseover_left = true;
+    slide_left();
+    mouseover_left = false;
+  });
+
+  $(".right").click(function() {
+    mouseover_right = true;
+    slide_right();
+    mouseover_right = false;
+  });
+
+  $(".left").hover(function() {
+    mouseover_left = true;
+    slide_left();
+  }, function() {
+    mouseover_left = false;
+  });
+
+  $(".right").hover(function() {
+    mouseover_right = true;
+    slide_right();
+  }, function() {
+    mouseover_right = false;
+  });
+  //if all images fit on the page dont show .left and .right
+  // http://stackoverflow.com/a/6005984/4062341
+  var total_gallery_width = 0;
+  $('.poster').each(function() {
+    total_gallery_width += parseInt($(this).width(), 10);
+  });
+
+  if (total_gallery_width < $(window).innerWidth()) {
+    $(".left, .right").css("display", "none");
+  }
+}
+$(document).ready(function() {
+  build_slider();
+});
+
+
+
+
+
+</script>

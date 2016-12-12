@@ -1,7 +1,7 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-ctx.lineWidth = 5;
-ctx.strokeStyle = '#000';
+ctx.lineWidth = 1;
+ctx.strokeStyle = '#fff';
 var margin = canvas.width/10;
 var markers = [];
 
@@ -16,14 +16,70 @@ var markers = [];
 //     $(this).removeClass("hightlight");
 //   });
 // }
+//slider
+function build_slider() {
+  var speed = 10;
+  var go_left, go_right;
+
+  function get_gallery_width() {
+    //http://stackoverflow.com/a/6005984/4062341
+    var totalWidth = 0;
+    $('.event_poster').each(function(index) {
+          totalWidth += parseInt($(this).outerWidth(), 10);
+      });
+    return totalWidth;
+  }
+
+  function slide(dir) {
+    if (dir == "right") {
+      if ( Math.abs(parseInt($("#poster_gallery").css("margin-left"),10)) < get_gallery_width() - $($(".wrapper")[0]).width()) {
+        $("#poster_gallery").css("margin-left","-=" + speed + "px");
+      }
+    }else{
+      if ( Math.abs(parseInt($("#poster_gallery").css("margin-left"),10)) > 0) {
+        $("#poster_gallery").css("margin-left","+=" + speed + "px");
+      }
+    }
+  }
+
+  $(".left").hover(function() {
+    go_left = setInterval(function() {
+      slide("left");
+    }, 10);
+  },function() {
+    clearInterval(go_left);
+  });
+  $(".right").hover(function() {
+    go_right = setInterval(function() {
+      slide("right");
+    }, 10);
+  },function() {
+    clearInterval(go_right);
+  });
+
+  $('.wrapper').bind('mousewheel', function(event) {
+    //http://stackoverflow.com/a/10545584/4062341
+      if (event.originalEvent.wheelDelta >= 0) {
+          slide("left");
+      }
+      else {
+          console.log('Scroll down');
+          slide("right");
+      }
+  });
+}
+//slider end
+
+
+
 function draw_dots(x){
   for (var i = 0; i < markers.length; i++) {
     ctx.beginPath();
     ctx.save();
     ctx.translate(margin, 0);
-    ctx.arc((canvas.width - (margin*2)) * markers[i], canvas.height/2, 10, 0, 2 * Math.PI, false);
+    ctx.arc((canvas.width - (margin*2)) * markers[i], canvas.height/2, 5, 0, 2 * Math.PI, false);
     ctx.restore();
-    ctx.fillStyle = (x == i ? "red" : "gray");
+    ctx.fillStyle = (x == i ? "gray" : "white");
     ctx.fill();
     ctx.stroke();
   }
@@ -57,6 +113,7 @@ function build_event_gallery(events) {
 
     new_event.appendTo($("#poster_gallery"));
   }
+  build_slider();
 }
 
 
@@ -109,6 +166,7 @@ function request_JSON_object() {
       response.sort(compare);
       // console.log(response);
       build_event_gallery(response);
+
       markers = get_markers(response);
       draw_background_and_line();
       draw_dots(1);
@@ -130,4 +188,5 @@ $( window ).resize(function() {
   margin = canvas.width/10;
   draw_background_and_line();
   draw_dots();
+  build_slider();
 });

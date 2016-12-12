@@ -3,28 +3,99 @@
 <head>
   <title>HUHU</title>
   <link rel="stylesheet" type="text/css" media="all"
+  href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" media="all"
   href="../static/css/canvas.css" th:href="@{/css/canvas.css}" />
   <link rel="stylesheet" type="text/css" media="all"
   href="../static/css/main.css" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" type="text/css" media="all"
+  href="../static/css/slider.css" th:href="@{/css/slider.css}" />
 </head>
 <body>
-  <h1 id="title">HUHU</h1>
+  <header class="row">
+    <div class="titel_wrapper col-xs-12">
+      <h1 id="title">HUHU</h1>
 
-  <ul id="poster_gallery">
-    <li class="hidden" id="prototype"><img class="event_poster" src="" alt="huhu"></img></li>
-  </ul>
+      <!-- Button trigger modal -->
+      <!-- http://getbootstrap.com/javascript/#modals -->
+      <button type="button" class="login_link btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Login
+      </button>
 
-  <canvas id="canvas"  width="1000" height="50"></canvas>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+              <!-- form -->
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <!-- <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile">
+                  <p class="help-block">Example block-level help text here.</p>
+                </div> -->
+                <!-- <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Check me out
+                  </label>
+                </div> -->
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+              <!-- form -->
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+    </div>
+  </header>
 
-  <div id="content">
+  <!-- <ul id="poster_gallery">
+  <li class="hidden" id="prototype"><img class="event_poster" src="" alt="huhu"></img></li>
+</ul> -->
+<div class="row">
+  <div class="wrapper col-xs-12">
+    <div class="left btn">
+      &lt;
+    </div>
+    <div class="right btn">
+      &gt;
+    </div>
+    <ul id="poster_gallery">
+      <li class="hidden" id="prototype"><img class="event_poster" src="https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/The-stages-of-puppy-growth.jpg?itok=9ptPJwY8" alt=""/></li>
+    </ul>
+  </div>
+  <canvas id="canvas" class="col-xs-12" width="1000" height="50"></canvas>
+</div>
+
+<div class="row">
+  <div id="content" class="well col-xs-12  col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
     <h1 id="heading">Ueberschift</h1>
     <p id="date">2day</p>
     <p id="text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
   </div>
+</div>
 </body>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}" charset="utf-8"></script>
 <script src="../static/js/metadata.js" th:src="@{/js/metadata.js}" charset="utf-8"></script>
 <script src="../static/js/frontend.js" th:src="@{/js/frontend.js}" charset="utf-8"></script>
 </html>

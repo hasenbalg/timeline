@@ -11,6 +11,7 @@ label, img{
 }
 img{
   border-radius: .5em;
+  width: 200px;
 }
 #prototype{
   display: none;
