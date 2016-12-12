@@ -21,3 +21,11 @@ img{
   margin: 1em;
   padding: 1em;
 }
+
+.logout{
+    position: absolute;
+    right: 0px;
+    margin: 1em;
+    padding:1em;
+    top: 0;
+}

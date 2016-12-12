@@ -15,8 +15,8 @@
     <input type="text" name="background_img_path" class="form-control" id="background_img_path" value=""></input>
   </form>
 
-  <form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
+  <form class="logout" th:action="@{/logout}" method="post">
+    <input class="btn btn-default" type="submit" value="Log Out"/>
   </form>
 
   <ul id="event_gallery">
