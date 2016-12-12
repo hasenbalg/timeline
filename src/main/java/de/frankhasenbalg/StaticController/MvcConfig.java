@@ -14,7 +14,7 @@ public class MvcConfig  extends WebMvcConfigurerAdapter {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/edit").setViewName("edit");
-//        registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/login").setViewName("index"); //no dedicated login page needed
     }
 
 

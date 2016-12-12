@@ -15,9 +15,15 @@
     <input type="text" name="background_img_path" class="form-control" id="background_img_path" value=""></input>
   </form>
 
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+  </form>
+
   <ul id="event_gallery">
     <li id="prototype">
       <form class="" action="" method="post">
+
+
         <input type="hidden" name="id" class="id" value=""></input>
         <label for="heading">Heading</label><br/>
         <input type="text" name="heading" class="form-control heading" value=""></input><br/><br/>
