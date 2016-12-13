@@ -1,24 +1,38 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Dec 07, 2016 at 05:58 PM
--- Server version: 5.5.33a-MariaDB
--- PHP Version: 5.5.21
+-- Host: 127.0.0.1:3306
+-- Generation Time: Dec 13, 2016 at 06:59 PM
+-- Server version: 5.7.17
+-- PHP Version: 7.0.8-0ubuntu0.16.04.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+--
+-- Database: `timeline`
+--
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+-- --------------------------------------------------------
 
 --
--- Database: `fh222jt`
+-- Table structure for table `authorities`
 --
+
+CREATE TABLE `authorities` (
+  `username` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `authority` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `authorities`
+--
+
+INSERT INTO `authorities` (`username`, `authority`) VALUES
+('user', 'ROLE_ADMIN'),
+('frank', 'ROLE_ADMIN'),
+('ramona', 'ROLE_ADMIN');
 
 -- --------------------------------------------------------
 
@@ -26,23 +40,33 @@ SET time_zone = "+00:00";
 -- Table structure for table `event`
 --
 
-CREATE TABLE IF NOT EXISTS `event` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `event` (
+  `id` bigint(20) NOT NULL,
   `date` datetime NOT NULL,
   `heading` varchar(255) NOT NULL,
   `text` varchar(255) NOT NULL,
-  `img_url` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `img_url` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id`, `date`, `heading`, `text`, `img_url`) VALUES
-(8, '2016-05-09 22:53:13', 'Ueberschrift 1', 'hier koennte ihre werbung stehen!', 'http://fillmurray.com/200/300'),
-(9, '2017-05-19 22:53:13', 'Ueberschrift 2', 'was anderes!', 'http://fillmurray.com/g/200/300'),
-(10, '2016-07-12 22:53:14', 'Ueberschrift 3', 'nochwas anderes!', 'http://fillmurray.com/200/300');
+(49, '2016-12-09 01:00:00', 'normale muetze', 'was anderes!', 'http://fillmurray.com/g/200/300'),
+(50, '2016-12-10 01:00:00', 'Normaler hut', 'in schwarz', 'http://www.realstylenetwork.com/celebrities/wp-content/uploads/sites/4/2014/08/Bill_Murray_Monuments_Men_premiere-200x300.jpg'),
+(51, '2016-12-11 01:00:00', 'huhu', 'huhuhuhuh', 'http://www.fullfilmizlesin.com/wp-content/uploads/oyuncular/bill-murray.jpg'),
+(52, '2016-12-12 01:00:00', 'neu', 'kjhklajshflkjhALKFSDJHLKJSAHFDLKJSAHFDLKJHLKASJDLFHLSKAJDFHLKJHKJHKSAJDHFKJHADSKJFHFSADJFSADKJJFSDKLJHASDKJFHKJHSADFKJHKADFSJJFJHDFAKJHKJHKJHJJJJjjjj', 'http://raymarstonwigs.co.uk/wp-content/uploads/2016/07/Bill-Murray-Rock-The-Kasbah-e1467642369484-200x300.jpg'),
+(53, '2016-12-13 01:00:00', 'nochma', 'lk/lasdkfj.kSDKLKSADKLLKXCMGKCXZ;LLKZDM.;LAMFKAF;.lADFK,LD./,MFADMMFd,msdfm,.,mn fsadmmfsd,.ngds.,gmgsd,m gn gsa,m,mxag,m gf,gsm gf,mngfxz,mngf,.mngf,m ngfm,m,mn', 'http://4.bp.blogspot.com/-7dheTVaqs9Q/UEMEznlthGI/AAAAAAAAADI/s9DvDAVFbpk/s1600/Bill+Murray.jpg'),
+(56, '2016-12-24 01:00:00', 'muellhut', 'ein guter muellhut', 'http://beauproductions.com/golfswingsws/billmurray/images/image3.jpg'),
+(57, '2016-12-27 01:00:00', 'Seepferd', 'sadfdsadfsdfsdfsaassdf', 'http://i.ebayimg.com/images/g/gbYAAOSwSzdXCEnr/s-l300.jpg'),
+(58, '2017-01-02 01:00:00', 'mit fliege', 'asfjkafsdkfdsa', 'http://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/performer%20images/p103861/getlow-pm-billmurray-6.jpg'),
+(59, '2016-12-05 01:00:00', 'extreeeem grosses bild', 'sadffsfdfsadsadffsad', 'http://www.shauntmax30.com/data/out/5/961374-2060x1236-bill-murray-desktop-wallpapers.jpeg'),
+(60, '2016-12-27 01:00:00', 'huhu', 'karohemd', 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ1OTM0MjEwOF5BMl5BanBnXkFtZTYwNTQwNzI1._V1_UY317_CR1,0,214,317_AL_.jpg'),
+(61, '2016-11-30 01:00:00', 'HUT', ';jla;sldk;lk;lkas;dlk;laskd;lk;sad', 'http://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/performer%20images/p103861/getlow-mv-billmurray-38.jpg'),
+(62, '2016-12-02 01:00:00', 'Ghoastbusters', 'kljhlakjfhlkjsdlkjhlkjhlaksdjfhlkj', 'https://thekleemanreport.files.wordpress.com/2015/03/001-looks-of-bill-murray.jpg?w=200&h=300'),
+(64, '2016-12-14 01:00:00', 'Dino------huhu', 'dino', 'http://kingofwallpapers.com/dino/dino-001.jpg'),
+(65, '2016-12-28 01:00:00', 'new teeees', '# KEEPING IT WEIRD SINCE 2001', 'http://media.lazyoaf.com/cropped/346x346/m/i/millte_02_millburraytshirt.jpg');
 
 -- --------------------------------------------------------
 
@@ -50,40 +74,67 @@ INSERT INTO `event` (`id`, `date`, `heading`, `text`, `img_url`) VALUES
 -- Table structure for table `meta_data`
 --
 
-CREATE TABLE IF NOT EXISTS `meta_data` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `meta_data` (
+  `id` bigint(20) NOT NULL,
   `background_img_path` varchar(255) NOT NULL,
-  `heading` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `heading` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `meta_data`
 --
 
 INSERT INTO `meta_data` (`id`, `background_img_path`, `heading`) VALUES
-(1, 'http://wallpapercave.com/wp/xWlhICf.jpg', 'Die Dinosaurier');
+(9607, 'http://vbgfoto.se/wp-content/uploads/2015/12/%C3%85rets-bild-5-h.jpg', 'Die Dinosaurier');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+CREATE TABLE `users` (
+  `username` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `enabled` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `user` (`id`, `name`, `password`) VALUES
-(1, 'frank', 'huhu');
+INSERT INTO `users` (`username`, `password`, `enabled`) VALUES
+('user', 'user', 1),
+('ramona', 'huhu', 1),
+('frank', 'huhu', 1);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `meta_data`
+--
+ALTER TABLE `meta_data`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `event`
+--
+ALTER TABLE `event`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+--
+-- AUTO_INCREMENT for table `meta_data`
+--
+ALTER TABLE `meta_data`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9608;

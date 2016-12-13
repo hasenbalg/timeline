@@ -22,3 +22,6 @@ Display static page:
 WebSecurityConfig/MVCconfig:
 - https://spring.io/guides/gs/securing-web/, 2016-12-12
 - http://stackoverflow.com/a/36837219/4062341, 2016-12-12
+
+Security user tabel layout and configure function
+ - https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-web-secure-jdbc
