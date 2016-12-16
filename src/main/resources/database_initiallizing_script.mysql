@@ -33,6 +33,10 @@ INSERT INTO `authorities` (`username`, `authority`) VALUES
 ('user', 'ROLE_ADMIN'),
 ('frank', 'ROLE_ADMIN'),
 ('ramona', 'ROLE_ADMIN');
+INSERT INTO `authorities` (`username`, `authority`) VALUES
+('user', 'ROLE_USER'),
+('frank', 'ROLE_USER'),
+('ramona', 'ROLE_USER');
 
 -- --------------------------------------------------------
 
