@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>HUHU2</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <script src="../static/js/angular1.5.min.js" th:src="@{/js/angular1.5.min.js}" charset="utf-8"></script>
+    <script src="../static/js/app/app.module.js" th:src="@{/js/app/app.module.js}" charset="utf-8"></script>
+    <script src="../static/js/app/events.controller.js" th:src="@{/js/app/events.controller.js}" charset="utf-8"></script>
+    <script src="../static/js/app/metadata.controller.js" th:src="@{/js/app/metadata.controller.js}" charset="utf-8"></script>
+
+</head>
+<body ng-app="app" ng-controller="MetadataController as md">
+<header>
+    <nav class="navbar navbar-default">
+        <div class="containder-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">{{md.metadata.heading}}</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="content" id="content" ng-controller="EventsController as vm" background-image-directive="{{md.metadata.backgroundImgPath}}">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul>
+                <li ng-repeat="event in vm.events">
+                    <img ng-src="{{event.img_url}}"/>
+                    <!--<button class="btn btn-danger" ng-click="vm.delete(event.id)">delete</button>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul>
+                <li ng-repeat="event in vm.events">
+                    <h2>{{event.heading}}</h2>
+                    <p>{{event.date}}</p>
+                    <p>{{event.text}}</p>
+                    <!--<button class="btn btn-danger" ng-click="vm.delete(event.id)">delete</button>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
