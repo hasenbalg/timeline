@@ -97,11 +97,11 @@ function build_event_gallery(events) {
     event_poster.src = events[i].img_url;
     event_poster.alt = events[i].heading;
     new_event.hover(function() {
-      $(this).addClass("hightlight");
+      $(this).find("img").addClass("hightlight");
       // console.log($(this).index());
       draw_dots($(this).index()-1); //-1 because of prototype
     }, function() {
-      $(this).removeClass("hightlight");
+      $(this).find("img").removeClass("hightlight");
     });
     new_event.click(function() {
       console.log(events[$(this).index() -1] + " index is " + $(this).index());

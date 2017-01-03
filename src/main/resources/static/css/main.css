@@ -1,4 +1,6 @@
-
+.container{
+  width: 100%;
+}
 .titel_wrapper{
   background-color: rgba(255, 255, 255, 0.5);
   height: 6em;
@@ -33,9 +35,9 @@ li#prototype.hidden{
 }
 
 .hightlight{
-  -webkit-box-shadow: 21px -9px 52px 0px rgba(0,0,0,0.42);
--moz-box-shadow: 21px -9px 52px 0px rgba(0,0,0,0.42);
-box-shadow: 21px -9px 52px 0px rgba(0,0,0,0.42);
+  -webkit-box-shadow: -1px 0px 20px -3px rgba(0,0,0,0.5);
+  -moz-box-shadow: -1px 0px 20px -3px rgba(0,0,0,0.5);
+  box-shadow: -1px 0px 20px -3px rgba(0,0,0,0.5);
 }
 #canvas{
   /*margin: 0 auto;*/
