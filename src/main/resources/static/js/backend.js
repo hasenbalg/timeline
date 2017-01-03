@@ -103,6 +103,7 @@ function add_form_for_new_event() {
   form.find(".text").val("");
   form.find(".img_path").val("");
   form.find(".date").val("");
+  form.find(".date").attr("placeholder","YYYY-MM-DD");
   form.find(".poster").attr('src',"http://placehold.it/200x300");
   form.find(".delete").remove();
   form.find(".add").removeClass("hidden");
@@ -117,7 +118,7 @@ function add_form_for_new_event() {
   });
 
   //render it
-  new_li.appendTo($("#event_gallery"));
+  new_li.prependTo($("#event_gallery"));
 }
 
 

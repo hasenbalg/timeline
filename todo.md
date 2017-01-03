@@ -1,5 +1,5 @@
-- fix box shadow on front page
+- fix box shadow on front page (check)
 - add image upload
-- fix poster slider width
-- fix height of edit events
+- fix poster slider width (check)
+- fix height of edit events (check)
 - logout msg should be displayed

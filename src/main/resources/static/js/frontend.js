@@ -119,10 +119,12 @@ function build_event_gallery(events) {
 
 
 function draw_background_and_line() {
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   ctx.moveTo(margin, canvas.height /2);
   ctx.lineTo(canvas.width - margin, canvas.height /2);
+  ctx.lineWidth = 4;
   ctx.stroke();
 }
 

@@ -28,6 +28,7 @@ $("#plus").click(function(){
   var last_box = $( ".box:last" );
   var new_box = last_box.clone();
   new_box.find("input, textarea").val("");
+  new_box.find(".date").attr("placeholder","YYYY-MM-DD");
   new_box.find("input, textarea").each(function() {
     //delet trailing number
     $(this).attr("name", $(this).attr('name').replace( /\d+/g, ''));
@@ -40,7 +41,7 @@ $("#plus").click(function(){
     new_form_submit($(this));
         event.preventDefault();
     });
-  new_box.insertAfter( last_box );
+  new_box.insertBefore( $(".box:first") );
   adjust_width();
   $('html, body').animate({scrollLeft: $(".box:last").offset().left}, 800);
 });

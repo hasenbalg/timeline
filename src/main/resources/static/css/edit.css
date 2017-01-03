@@ -1,14 +1,25 @@
-li{
+
+
+.titel_wrapper > h1,
+.titel_wrapper > form{
   display: inline-block;
+}
+.titel_wrapper{
+  height:auto;
+}
+
+li{
   margin: 1em;
   padding: 1em;
   border: 1px solid lightgray;
   border-radius: 1em;
   background-color: rgba(255, 255, 255, 0.5);
 }
+
 label, img{
   margin-top: .5em;
 }
+
 img{
   border-radius: .5em;
   width: 200px;
@@ -17,7 +28,7 @@ img{
   display: none;
 }
 .metadata{
-  width: 15em;
+  /*width: 15em;*/
   margin: 1em;
   padding: 1em;
 }
@@ -28,4 +39,18 @@ img{
     margin: 1em;
     padding:1em;
     top: 0;
+}
+
+#event_gallery{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#event_gallery > li > form{
+  display: flex;
+  flex-direction: column;
+}
+
+#event_gallery > li > form > .btn{
+  margin-top: 1em;
 }

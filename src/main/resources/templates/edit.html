@@ -4,29 +4,35 @@
 <head>
   <title>Edit</title>
   <link rel="stylesheet" type="text/css" media="all" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/main.css" th:href="@{/css/main.css}" />
   <link rel="stylesheet" type="text/css" media="all" href="../static/css/edit.css" th:href="@{/css/edit.css}" />
 </head>
 <body>
-  <form class="metadata" action="" method="post">
-    <h1>edit</h1>
-    <label for="title">Titel</label><br/>
-    <input type="text" name="title" class="form-control" id="title" value=""></input><br/><br/>
-    <label for="background_img_path">Background Image URL</label><br/>
-    <input type="text" name="background_img_path" class="form-control" id="background_img_path" value=""></input>
-  </form>
+  <div class="container">
+    <div class="row titel_wrapper">
+        <h1 class="col-xs-10 col-sm-3">edit</h1>
+        <form class="logout col-xs-2  col-sm-3 text-right" th:action="@{/logout}" method="post">
+          <input class="btn btn-default" type="submit" value="Log Out"/>
+        </form>
+        <form class="metadata col-xs-10  col-sm-6" action="" method="post">
+          <div class="col-xs-12 col-sm-6">
+            <label for="title">Titel</label><br/>
+            <input type="text" name="title" class="form-control" id="title" value=""></input><br/>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <label for="background_img_path">Background Image URL</label><br/>
+            <input type="text" name="background_img_path" class="form-control" id="background_img_path" value=""></input>
+          </div>
+        </form>
+    </div>
 
-  <form class="logout" th:action="@{/logout}" method="post">
-    <input class="btn btn-default" type="submit" value="Log Out"/>
-  </form>
-
+<div class="row">
   <ul id="event_gallery">
     <li id="prototype">
       <form class="" action="" method="post">
-
-
         <input type="hidden" name="id" class="id" value=""></input>
         <label for="heading">Heading</label><br/>
-        <input type="text" name="heading" class="form-control heading" value=""></input><br/><br/>
+        <input type="text" name="heading" class="form-control heading" value=""></input><br/>
         <label for="date">Date</label><br/>
         <input type="date" name="date" class="form-control date" value=""></input><br/>
         <label for="text">Text</label><br/>
@@ -39,6 +45,9 @@
       </form>
     </li>
   </ul>
+</div>
+
+  </div>
 </body>
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 <script src="../static/js/metadata_edit.js" th:src="@{/js/metadata_edit.js}" charset="utf-8"></script>
