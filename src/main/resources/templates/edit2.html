@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Edit</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/main.css" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/edit2.css" th:href="@{/css/edit2.css}" />
+</head>
+<body>
+
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <nav id="spy">
+        <ul class="sidebar-nav nav">
+          <li class="sidebar-brand">
+            <a href="#edit"><span class="fa fa-home solo">Edit</span></a>
+          </li>
+          <li>
+            <a href="#anch1" >
+              <span class="fa fa-anchor solo">Topic</span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch2" >
+              <span class="fa fa-anchor solo">Existing events</span>
+            </a>
+          </li>
+          <li>
+            <a href="#anch3" >
+              <span class="fa fa-anchor solo">New event</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+      <div class="content-header row">
+        <h1 id="edit" class="col-xs-9">
+          <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+            <i class="fa fa-bars"></i>
+          </a>
+          Sidebar
+        </h1>
+        <form class="logout col-xs-2" th:action="@{/logout}" method="post">
+          <input class="btn btn-default btn-lg" type="submit" value="Log Out"/>
+        </form>
+      </div>
+
+      <div class="page-content inset" data-spy="scroll" data-target="#spy">
+        <div class="row">
+
+          <div class="jumbotron text-center" >
+            <h1>Edit</h1>
+            <p>Here you can delete and add new events or you can change the theme and background image.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 well">
+            <legend id="anch1">Topic</legend>
+            <form class="metadata" action="" method="post">
+              <!-- <h1>Edit</h1>-->
+              <label for="title">Titel</label><br/>
+              <input type="text" name="title" class="form-control" id="title" value=""></input><br/><br/>
+              <label for="background_img_path">Background Image URL</label><br/>
+              <input type="text" name="background_img_path" class="form-control" id="background_img_path" value=""></input>
+            </form>
+          </div>
+          <div class="col-md-12 well gallery_wrapper">
+            <legend id="anch2">Existing events</legend>
+
+            <!-- GALLERY -->
+            <ul id="event_gallery">
+              <li id="prototype">
+                <form class="" action="" method="post">
+                  <input type="hidden" name="id" class="id" value=""></input>
+                  <label for="heading">Heading</label><br/>
+                  <input type="text" name="heading" class="form-control heading" value=""></input><br/>
+                  <label for="date">Date</label><br/>
+                  <input type="date" name="date" class="form-control date" value=""></input><br/>
+                  <label for="text">Text</label><br/>
+                  <textarea name="text" class="form-control text" value=""></textarea><br/>
+                  <label for="img_path">Image URL</label><br/>
+                  <input type="text" name="img_path" class="form-control img_path" value=""></input><br/>
+                  <img class="poster" src="" alt="huhu"></img><br/><br/>
+                  <button type="button" name="delete" class="btn btn-danger delete">DELETE EVENT</button>
+                  <button type="button" name="add" class="btn btn-primary hidden add">ADD EVENT</button>
+                </form>
+              </li>
+            </ul>
+            <!-- GALLERY -->
+          </div>
+          <div class="col-md-12 well">
+            <legend id="anch3">New event</legend>
+            <!-- NEW EVENT -->
+            <form id="new2" class="" action="" method="post">
+              <input type="hidden" name="id" class="id" value=""></input>
+              <label for="heading">Heading</label><br/>
+              <input type="text" name="heading" class="form-control heading" value=""></input><br/>
+              <label for="date">Date</label><br/>
+              <input type="date" name="date" class="form-control date" value=""></input><br/>
+              <label for="text">Text</label><br/>
+              <textarea name="text" class="form-control text" value=""></textarea><br/>
+              <label for="img_path">Image URL</label><br/>
+              <input type="text" name="img_path" class="form-control img_path" value=""></input><br/>
+              <img class="poster" src="" alt="huhu"></img><br/><br/>
+              <button type="button" name="add" class="btn btn-primary add">ADD EVENT</button>
+            </form>
+            <!-- NEW EVENT -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script src="../static/js/metadata_edit.js" th:src="@{/js/metadata_edit.js}" charset="utf-8"></script>
+<script src="../static/js/backend.js" th:src="@{/js/backend.js}" charset="utf-8"></script>
+<script src="../static/js/add_event_for_edit2.js" th:src="@{/js/add_event_for_edit2.js}" charset="utf-8"></script>
+<script src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}" charset="utf-8"></script>
+<script src="../static/js/sidebar.js" th:src="@{/js/sidebar.js}" charset="utf-8"></script>
+</html>
