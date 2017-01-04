@@ -200,8 +200,12 @@ a:focus, a:hover{
 li > form{
   display: flex;
     flex-direction: column;
-    height: 56em;
+    /*height: 56em;*/
 }
 li > form > .btn{
-      margin-top: auto;
+      margin-top: 1em;
+}
+.img_wrapper{
+  height: 12em;
+  overflow-y: hidden;
 }

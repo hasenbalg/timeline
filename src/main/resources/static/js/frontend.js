@@ -32,7 +32,7 @@ function build_slider() {
 
   function slide(dir) {
     if (dir == "right") {
-      if ( Math.abs(parseInt($("#poster_gallery").css("margin-left"),10)) < get_gallery_width() - $($(".wrapper")[0]).width()) {
+      if ( Math.abs(parseInt($("#poster_gallery").css("margin-left"),10)) < get_gallery_width() - $($(".wrapper")[0]).width() + $(".event_poster:last").width()) {
         $("#poster_gallery").css("margin-left","-=" + speed + "px");
       }
     }else{

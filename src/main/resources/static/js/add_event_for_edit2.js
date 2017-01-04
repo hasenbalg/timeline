@@ -1,4 +1,40 @@
 // override
+function build_event_forms(events) {
+  console.log(events.length + "length of json obj");
+  var prototype = $("#prototype");
+  for (var i = 0; i < events.length; i++) {
+    var new_li = prototype.clone().removeAttr('id');
+    var form = new_li.find("form");
+
+    form.find(".id").val(events[i].id);
+    form.find(".heading").val(events[i].heading);
+    form.find(".text").val(events[i].text);
+    form.find(".img_path").val(events[i].img_url);
+    form.find(".date").val(date_format_for_input_field(events[i].date));
+    form.find(".poster").attr('src',events[i].img_url);
+
+    //add onchange listener to form
+    //https://api.jquery.com/category/events/form-events/
+    $(form).change(function() {
+      send_modified_data($(this));
+    });
+
+    //add onchange listener to the img_path
+    form.find(".img_path").change(function() {
+      $(this).siblings(".img_wrapper").find(".poster").attr('src',$(this).val());
+    });
+
+    //add onchange listener to the delete button
+    form.find(".delete").click(function() {
+      delete_record($(this).parents("li"));
+    });
+    //render it
+    new_li.appendTo($("#event_gallery"));
+  }
+  add_form_for_new_event();
+}
+
+// override
 function add_form_for_new_event() {
 console.log("override");
 }
