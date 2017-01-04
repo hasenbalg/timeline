@@ -4,6 +4,7 @@ ctx.lineWidth = 1;
 ctx.strokeStyle = '#fff';
 var margin = canvas.width/10;
 var markers = [];
+var data = [];
 
 //
 //
@@ -83,6 +84,26 @@ function draw_dots(x){
     ctx.fill();
     ctx.stroke();
   }
+  // DRAW DATE
+  // http://stackoverflow.com/a/3552493
+  var monthNames = [
+  "Jan", "Febr", "Mar",
+  "Apr", "May", "Jun", "Jul",
+  "Aug", "Sept", "Oct",
+  "Nov", "Dec"
+];
+  console.log(monthNames[new Date(data[x].date).getMonth()] + "/" + new Date(data[x].date).getDate());
+  var date_to_print = new Date(data[x].date).getFullYear()  + " " + monthNames[new Date(data[x].date).getMonth()] + " " + new Date(data[x].date).getDate();
+
+  ctx.beginPath();
+  ctx.save();
+  ctx.translate(margin - 70, 0); // center date under dot
+  ctx.font = '20pt Helvetica ';
+  ctx.fillStyle = "grey";
+  ctx.fillText(date_to_print, (canvas.width - (margin*2)) * markers[x], canvas.height);
+  ctx.restore();
+  ctx.fill();
+  ctx.stroke();
 }
 
 function build_event_gallery(events) {
@@ -99,6 +120,7 @@ function build_event_gallery(events) {
     new_event.hover(function() {
       $(this).find("img").addClass("hightlight");
       // console.log($(this).index());
+      draw_background_and_line();
       draw_dots($(this).index()-1); //-1 because of prototype
     }, function() {
       $(this).find("img").removeClass("hightlight");
@@ -167,6 +189,7 @@ function request_JSON_object() {
       // console.log(response);
       response.sort(compare);
       // console.log(response);
+      data = response;
       build_event_gallery(response);
 
       markers = get_markers(response);
