@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable() //to not have to send the token with every rest request
                 .authorizeRequests()
-                .antMatchers("/", "/**/all", "/index2").permitAll() //remove index2
+                .antMatchers("/", "/**/all", "/index").permitAll() //remove index2
                 .antMatchers("/**/modify", "/**/create", "/**/delete/**").access("hasRole('USER')")
                 .anyRequest().authenticated()
                 .and()
@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
+                .logoutSuccessUrl("/?logout")
                 .permitAll();
     }
 

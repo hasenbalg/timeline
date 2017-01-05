@@ -207,8 +207,17 @@ $( document ).ready(function() {
   request_JSON_object();
 
   console.log(window.location.href.indexOf("?logout"));
-  if (window.location.href.indexOf("?logout") > 0) {
-    alert("You are logged out now")
+  if (window.location.href.indexOf("login") > 0) {
+    $("#login_button").trigger( "click" );
+  } else if (window.location.href.indexOf("?logout") > 0) {
+    // http://stackoverflow.com/a/14610542/4062341
+    $('#login_status')
+    .delay(1000)
+    .removeClass("hidden")
+    .hide()
+    .fadeIn()
+    .delay(1000)
+    .fadeOut();
   }
   // draw_dots(1);
 

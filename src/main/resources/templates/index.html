@@ -22,7 +22,10 @@
 
         <!-- Button trigger modal -->
         <!-- http://getbootstrap.com/javascript/#modals -->
-        <button type="button" class="login_link btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        <div id="login_status" class="alert alert-warning text-center hidden">
+          You are logged out now.
+        </div>
+        <button id="login_button" type="button" class="login_link btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
           Login
         </button>
 

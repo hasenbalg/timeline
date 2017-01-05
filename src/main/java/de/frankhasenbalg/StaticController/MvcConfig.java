@@ -20,6 +20,7 @@ public class MvcConfig  extends WebMvcConfigurerAdapter {
         registry.addViewController("/edit").setViewName("edit");
         registry.addViewController("/edit2").setViewName("edit2");
         registry.addViewController("/login").setViewName("index"); //no dedicated login page needed
+        registry.addViewController("/logout").setViewName("index"); //no dedicated logout page needed
     }
 
     @Override
