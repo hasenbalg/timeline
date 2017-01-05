@@ -102,7 +102,7 @@ function draw_dots(x){
     ctx.translate(margin - 70, 0); // center date under dot
     ctx.font = '20pt Helvetica ';
     ctx.fillStyle = "white";
-    ctx.fillText(date_to_print, (canvas.width - (margin*2)) * markers[x], canvas.height- 20);
+    ctx.fillText(date_to_print, (canvas.width - (margin*2)) * markers[x], canvas.height- 10);
     ctx.restore();
     ctx.fill();
     ctx.stroke();

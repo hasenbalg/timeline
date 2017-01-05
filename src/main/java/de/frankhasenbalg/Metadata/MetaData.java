@@ -17,9 +17,12 @@ public class MetaData {
     private String heading;
     @Column(nullable = false)
     private String backgroundImgPath;
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
-    public MetaData(String heading, String backgroundImgPath) {
+    public MetaData(String heading, String backgroundImgPath, String description) {
         this.heading = heading;
+        this.description = description;
         this.backgroundImgPath = backgroundImgPath;
     }
 
@@ -31,5 +34,9 @@ public class MetaData {
 
     public String getBackgroundImgPath() {
         return backgroundImgPath;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

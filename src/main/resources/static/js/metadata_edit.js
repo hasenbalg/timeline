@@ -3,6 +3,7 @@ function set_values(response){
   $("#title").val(response.heading);
   $("body").css("background-image", "url(" + response.backgroundImgPath + ")");
   $("#background_img_path").val(response.backgroundImgPath);
+  $("#description").val(response.description);
 }
 
 function request_metadata(){
@@ -22,7 +23,8 @@ function send_new_metadata() {
   console.log("on change");
   var data = {
             heading:$("#title").val(),
-            backgroundImgPath:$("#background_img_path").val()
+            backgroundImgPath:$("#background_img_path").val(),
+            description:$("#description").val()
         };
   console.log(data);
   $.ajax({
@@ -43,7 +45,7 @@ function send_new_metadata() {
 
 function add_change_listeners() {
   console.log("adding change listener");
-  $("#background_img_path, #title").change(function() {
+  $("#background_img_path, #title, #description").change(function() {
     send_new_metadata()
   });
 }
