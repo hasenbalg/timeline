@@ -38,10 +38,10 @@ public class EventController {
         eventRepository.delete(id);
         return eventRepository.findAllByOrderByDateAsc();
     }
-    @CrossOrigin
+    // @CrossOrigin
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public List<Event> modify(@RequestBody Event event){
-        eventRepository.delete(event.getId());
+//        eventRepository.delete(event.getId());
         eventRepository.save(event);
         return eventRepository.findAllByOrderByDateAsc();
     }

@@ -3,3 +3,7 @@
 - fix poster slider width (check)
 - fix height of edit events (check)
 - logout msg should be displayed
+- remove scrollbar @ images
+- fix url after login
+- bg img on front end
+- favicon

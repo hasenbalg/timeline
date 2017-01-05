@@ -26,8 +26,8 @@ function build_slider() {
     //http://stackoverflow.com/a/6005984/4062341
     var totalWidth = 0;
     $('.event_poster').each(function(index) {
-          totalWidth += parseInt($(this).outerWidth(), 10);
-      });
+      totalWidth += parseInt($(this).outerWidth(), 10);
+    });
     return totalWidth;
   }
 
@@ -60,13 +60,13 @@ function build_slider() {
 
   $('.wrapper').bind('mousewheel', function(event) {
     //http://stackoverflow.com/a/10545584/4062341
-      if (event.originalEvent.wheelDelta >= 0) {
-          slide("left");
-      }
-      else {
-          console.log('Scroll down');
-          slide("right");
-      }
+    if (event.originalEvent.wheelDelta >= 0) {
+      slide("left");
+    }
+    else {
+      console.log('Scroll down');
+      slide("right");
+    }
   });
 }
 //slider end
@@ -87,23 +87,26 @@ function draw_dots(x){
   // DRAW DATE
   // http://stackoverflow.com/a/3552493
   var monthNames = [
-  "Jan", "Febr", "Mar",
-  "Apr", "May", "Jun", "Jul",
-  "Aug", "Sept", "Oct",
-  "Nov", "Dec"
-];
-  console.log(monthNames[new Date(data[x].date).getMonth()] + "/" + new Date(data[x].date).getDate());
-  var date_to_print = new Date(data[x].date).getFullYear()  + " " + monthNames[new Date(data[x].date).getMonth()] + " " + new Date(data[x].date).getDate();
+    "Jan", "Febr", "Mar",
+    "Apr", "May", "Jun", "Jul",
+    "Aug", "Sept", "Oct",
+    "Nov", "Dec"
+  ];
+  if (data[x] != null) {
 
-  ctx.beginPath();
-  ctx.save();
-  ctx.translate(margin - 70, 0); // center date under dot
-  ctx.font = '20pt Helvetica ';
-  ctx.fillStyle = "grey";
-  ctx.fillText(date_to_print, (canvas.width - (margin*2)) * markers[x], canvas.height);
-  ctx.restore();
-  ctx.fill();
-  ctx.stroke();
+    console.log(monthNames[new Date(data[x].date).getMonth()] + "/" + new Date(data[x].date).getDate());
+    var date_to_print = new Date(data[x].date).getFullYear()  + " " + monthNames[new Date(data[x].date).getMonth()] + " " + new Date(data[x].date).getDate();
+
+    ctx.beginPath();
+    ctx.save();
+    ctx.translate(margin - 70, 0); // center date under dot
+    ctx.font = '20pt Helvetica ';
+    ctx.fillStyle = "white";
+    ctx.fillText(date_to_print, (canvas.width - (margin*2)) * markers[x], canvas.height- 20);
+    ctx.restore();
+    ctx.fill();
+    ctx.stroke();
+  }
 }
 
 function build_event_gallery(events) {
@@ -181,7 +184,7 @@ function compare(a, b) {
 function request_JSON_object() {
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/event/all",
+    url: "/event/all",
     // data: myusername,
     cache: false,
     success: function(response){
@@ -203,7 +206,10 @@ $( document ).ready(function() {
   console.log( "ready!" );
   request_JSON_object();
 
-
+  console.log(window.location.href.indexOf("?logout"));
+  if (window.location.href.indexOf("?logout") > 0) {
+    alert("You are logged out now")
+  }
   // draw_dots(1);
 
 });

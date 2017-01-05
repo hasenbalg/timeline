@@ -45,12 +45,14 @@ function send_modified_data(form){
   $.ajax({
     type: "POST",
     contentType: "application/json",
-    url: "http://localhost:8080/event/modify",
+    url: "/event/modify",
     cache: false,
+
     dataType: 'json',
     data: JSON.stringify(data),
     success: function(response){
       console.log("request ok");
+      
       // reset_page(); //works but not handy while editing
     }
   });
@@ -69,8 +71,9 @@ function send_new_data(form){
   $.ajax({
     type: "POST",
     contentType: "application/json",
-    url: "http://localhost:8080/event/create",
+    url: "/event/create",
     cache: false,
+
     dataType: 'json',
     data: JSON.stringify(data),
     success: function(response){
@@ -85,8 +88,10 @@ function delete_record(li){
   console.log(id + " is id the id to delete");
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/event/delete/" + id,
+    url: "/event/delete/" + id,
+
     success: function(response){
+      console.log("request ok");
       // build_event_forms(response);
       li.remove();
     }
@@ -162,8 +167,10 @@ function request_data() {
   //runs once in the beginning
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/event/all",
+    url: "/event/all",
+
     success: function(response){
+      console.log("request ok");
       build_event_forms(response);
     }
   });

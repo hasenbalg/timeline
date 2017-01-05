@@ -19,12 +19,12 @@ public class MetaDataController {
     public MetaDataController(MetaDataRepository metaDataRepository){
         this.metaDataRepository = metaDataRepository;
     }
-    @CrossOrigin
+    // @CrossOrigin
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<MetaData> getAll(){
         return metaDataRepository.findAll();
     }
-    @CrossOrigin
+    // @CrossOrigin
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public List<MetaData> mofify(@RequestBody MetaData md){
         metaDataRepository.deleteAll();

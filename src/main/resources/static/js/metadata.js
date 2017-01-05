@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/metadata/all",
+    url: "/metadata/all",
     cache: false,
     success: function(response){
       console.log("Sedding metadata");

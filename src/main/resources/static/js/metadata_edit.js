@@ -9,7 +9,7 @@ function request_metadata(){
   //runs once in the beginning
   $.ajax({
     type: "GET",
-    url: "http://localhost:8080/metadata/all",
+    url: "/metadata/all",
     success: function(response){
       response = response[0]; //because I get a list
       set_values(response);
@@ -28,7 +28,7 @@ function send_new_metadata() {
   $.ajax({
     type: "POST",
     contentType: "application/json",
-    url: "http://localhost:8080/metadata/modify",
+    url: "/metadata/modify",
     cache: false,
     dataType: 'json',
     data: JSON.stringify(data),
