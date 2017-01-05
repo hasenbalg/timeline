@@ -2,8 +2,8 @@
 - add image upload
 - fix poster slider width (check)
 - fix height of edit events (check)
-- logout msg should be displayed
-- remove scrollbar @ images
-- fix url after logout
-- bg img on front end
+- logout msg should be displayed (check)
+- remove scrollbar @ images (not relevant)
+- fix url after logout (check)
+- bg img on front end (not relevant)
 - favicon (check)
